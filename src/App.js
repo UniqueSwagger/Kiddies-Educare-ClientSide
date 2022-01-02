@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-3xl text-green-600 text-center font-bold">
-        Kiddies Educare
+        Kiddies Educare Hub
       </h1>
     </div>
   );
