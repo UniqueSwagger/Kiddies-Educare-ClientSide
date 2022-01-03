@@ -19,6 +19,9 @@ export const BreadCrumbArea = styled.div`
     z-index: -1;
     transform: skew(40deg, 0deg);
   }
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: #ffffff;
+  }
 `;
 
 export const InnerContent = styled.div`
@@ -70,10 +73,10 @@ export const BreadCrumbMenu = styled.div`
     transition: all 500ms ease;
   }
   ul li.active {
-    color: #0d9488;
+    color: #2e44d6;
   }
   ul li a:hover {
-    color: #0d9488;
+    color: #2e44d6;
   }
   @media only screen and (max-width: 767px) {
     display: block;

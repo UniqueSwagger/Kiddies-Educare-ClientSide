@@ -65,9 +65,9 @@ const Footer = () => {
                   <FooterTitle> Recent Events </FooterTitle>
                   <div>
                     {events.map((event) => {
-                      const { id, title, image } = event;
+                      const { _id, title, image } = event;
                       return (
-                        <div key={id} className="singleEvent">
+                        <div key={_id} className="singleEvent">
                           <div className="eventImage">
                             <img src={image} width="200" height="143" alt="" />
                           </div>

@@ -19,9 +19,11 @@ const BreadCrumb = ({ title }) => {
               </Title>
               <BreadCrumbMenu>
                 <ul>
-                  <BreadcrumbItem>
-                    <Link to="/home">Home </Link>
-                  </BreadcrumbItem>
+                  <li className="breadcrumb-item">
+                    <Link className="text-decoration-none" to="/home">
+                      Home
+                    </Link>
+                  </li>
                   <BreadcrumbItem>{title}</BreadcrumbItem>
                 </ul>
               </BreadCrumbMenu>

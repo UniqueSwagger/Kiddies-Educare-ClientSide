@@ -3,6 +3,7 @@ import React from "react";
 const Features = () => {
   const features = [
     {
+      id: 1,
       icon: (
         <img
           loading="lazy"
@@ -16,6 +17,7 @@ const Features = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
+      id: 2,
       icon: (
         <img
           loading="lazy"
@@ -29,6 +31,7 @@ const Features = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
+      id: 3,
       icon: (
         <img
           loading="lazy"
@@ -42,6 +45,7 @@ const Features = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
+      id: 4,
       icon: (
         <img
           loading="lazy"
@@ -55,6 +59,7 @@ const Features = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
+      id: 5,
       icon: (
         <img
           loading="lazy"
@@ -68,6 +73,7 @@ const Features = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
+      id: 6,
       icon: (
         <img
           loading="lazy"
@@ -84,9 +90,9 @@ const Features = () => {
   return (
     <section className="py-32  mx-auto px-4 sm:px-8 lg:px-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 sm:gap-4 lg:gap-8 text-sm">
       {features.map((feature) => {
-        const { icon, title } = feature;
+        const { icon, title, id } = feature;
         return (
-          <div className="px-4">
+          <div key={id} className="px-4">
             <div className="flex items-end space-x-2">
               {icon}
               <h2 className="fs-3">{title}</h2>
