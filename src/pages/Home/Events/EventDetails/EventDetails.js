@@ -58,7 +58,7 @@ const EventDetails = () => {
                     width="670"
                     className="w-100 border-0"
                     height="310"
-                    allowfullscreen
+                    allowFullScreen
                     loading="lazy"
                     title="map"
                   ></iframe>

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, ShoppingCartIcon, XIcon } from "@heroicons/react/outline";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 const Header = () => {
   const navigate = useNavigate();
@@ -117,26 +117,29 @@ const Header = () => {
             {/* Mobile Menus */}
             <Disclosure.Panel className="sm:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Disclosure.Button
-                  as="a"
-                  href="/home"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
-                >
-                  Home
+                <Disclosure.Button>
+                  <Link
+                    className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
+                    to="/home"
+                  >
+                    Home
+                  </Link>
                 </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="/shop"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
-                >
-                  Shop
+                <Disclosure.Button>
+                  <Link
+                    className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
+                    to="/shop"
+                  >
+                    Shop
+                  </Link>
                 </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="/myOrders"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
-                >
-                  My Orders
+                <Disclosure.Button>
+                  <Link
+                    className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
+                    to="/myOrders"
+                  >
+                    My Orders
+                  </Link>
                 </Disclosure.Button>
               </div>
             </Disclosure.Panel>
