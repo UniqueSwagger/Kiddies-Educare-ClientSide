@@ -70,10 +70,10 @@ export const BreadCrumbMenu = styled.div`
     transition: all 500ms ease;
   }
   ul li.active {
-    color: #0d9488;
+    color: #2e44d6;
   }
   ul li a:hover {
-    color: #0d9488;
+    color: #2e44d6;
   }
   @media only screen and (max-width: 767px) {
     display: block;

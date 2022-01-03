@@ -1,16 +1,12 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
+import { fetchEvents } from "../redux/slices/eventsSlice";
+import { useDispatch, useSelector } from "react-redux";
 const useEvents = () => {
-  const [events, setEvents] = useState([]);
-
+  const dispatch = useDispatch();
+  const { events } = useSelector((state) => state.events);
   useEffect(() => {
-    const getEvents = async () => {
-      const res = await axios.get("./events.json");
-      setEvents(res.data);
-    };
-    getEvents();
-  }, []);
+    dispatch(fetchEvents());
+  }, [dispatch]);
   return events;
 };
 
