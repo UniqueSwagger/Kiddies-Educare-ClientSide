@@ -80,7 +80,7 @@ const Footer = () => {
                             <h6>
                               <Link
                                 className="text-decoration-none text-black"
-                                to="/blog-details"
+                                to={`/eventDetails/${_id}`}
                               >
                                 {title}
                               </Link>

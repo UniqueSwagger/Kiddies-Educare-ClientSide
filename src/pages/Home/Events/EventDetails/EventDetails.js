@@ -71,7 +71,7 @@ const EventDetails = () => {
                 <h3 className="border-b border-gray-400 pb-3 text-2xl">
                   Event Details
                 </h3>
-                <div className="flex text-slate-500 items-center justify-between">
+                <div className="flex text-slate-500 flex-lg-row flex-column items-start items-lg-center justify-between">
                   <div>
                     <div className="flex items-center">
                       <ClockIcon className="w-4 h-4 me-2" />
