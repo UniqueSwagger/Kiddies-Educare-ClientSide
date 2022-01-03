@@ -19,6 +19,9 @@ export const BreadCrumbArea = styled.div`
     z-index: -1;
     transform: skew(40deg, 0deg);
   }
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: #ffffff;
+  }
 `;
 
 export const InnerContent = styled.div`
