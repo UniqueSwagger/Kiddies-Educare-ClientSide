@@ -3,36 +3,30 @@
     "id": 1,
     "title": "Swimming Competition",
     "image": "https://i.ibb.co/GTZcmk8/swimming.jpg",
-    "fromDate": "22-10-2021",
+    "fromDate": "01-01-2022",
     "fromTime": "8:00 AM",
-    "toDate": "23-10-2021",
+    "toDate": "23-01-2022",
     "toTime": "6:00 PM",
-    "location": "32 Loze Street, London",
-    "eventOrganizer": "Swimmer London",
-    "venue": "Community Mall"
+    "location": " 354 Shuter St Toronto"
   },
   {
     "id": 2,
-    "title": "Swimming Competition",
+    "title": "Science Natural Day",
     "image": "https://i.ibb.co/sRtKZsY/science.png",
-    "fromDate": "22-10-2021",
+    "fromDate": "01-01-2022",
     "fromTime": "8:00 AM",
-    "toDate": "23-10-2021",
+    "toDate": "24-01-2022",
     "toTime": "6:00 PM",
-    "location": "32 Loze Street, London",
-    "eventOrganizer": "Swimmer London",
-    "venue": "Community Mall"
+    "location": " 244 Lisgar St Toronto"
   },
   {
     "id": 3,
-    "title": "Swimming Competition",
+    "title": "Baseball Tournament",
     "image": "https://i.ibb.co/RPQQZ90/baseball.jpg",
-    "fromDate": "22-10-2021",
+    "fromDate": "01-01-2022",
     "fromTime": "8:00 AM",
-    "toDate": "23-10-2021",
+    "toDate": "22-01-2022",
     "toTime": "6:00 PM",
-    "location": "32 Loze Street, London",
-    "eventOrganizer": "Swimmer London",
-    "venue": "Community Mall"
+    "location": " 354 Shuter St Toronto"
   }
 ]

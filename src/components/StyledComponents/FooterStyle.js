@@ -22,7 +22,7 @@ export const FooterTop = styled.div`
     width: 100%;
     z-index: 2;
     background-repeat: no-repeat;
-    /* background-image: url(../images/line-bg1.png); */
+    background-image: url("https://i.ibb.co/sFvRgJX/line-bg1.png");
     top: 0;
     background-size: 100%;
   }

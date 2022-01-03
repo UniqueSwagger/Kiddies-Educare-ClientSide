@@ -7,8 +7,8 @@ const Event = ({ event }) => {
       <div>
         <img src={event.image} alt="event" />
         <div className="bg-orange-400 text-gray-200 absolute w-16 h-16 text-base top-0 text-center p-2">
-          <span className="text-xl">22</span> <br />
-          <span>Oct</span>
+          <span className="text-xl">01</span> <br />
+          <span>Jan</span>
         </div>
       </div>
       <div>
