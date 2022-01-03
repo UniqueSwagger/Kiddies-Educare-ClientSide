@@ -1,51 +1,129 @@
-import React from "react";
+import React, { Fragment } from "react";
 import useEvents from "../../../hooks/useEvents";
-
+import { Link } from "react-router-dom";
+import { Col, Container, Form, FormControl, Row } from "react-bootstrap";
+import {
+  FooterBottom,
+  FooterTitle,
+  FooterTop,
+  InformationDiv,
+  RecentEvents,
+  SubscribeForm,
+} from "../../StyledComponents/FooterStyle";
 const Footer = () => {
   const events = useEvents();
   return (
-    <footer className="bg-slate-900 text-gray-300">
-      <div className="px-4 w-10/12 mx-auto">
-        {/* top section */}
-        <div className="text-gray-500 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-gray-400 items-center">
-          <div className="flex flex-col justify-center items-center">
-            <div>
-              <h5>Pages</h5>
-              <ul className="p-0 m-0">
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <div>
-              <h5>Events</h5>
-              <ul className="p-0 m-0">
-                {events?.map((e) => (
-                  <li key={e.id}>{e.title}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <div>
-              <h5>Courses</h5>
-              <ul className="p-0 m-0">
-                <li>Learn English</li>
-                <li>Coding For Kids</li>
-                <li>Good Handwriting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        {/* bottom section */}
-        <div className="flex justify-between py-3">
-          <span>2022 &copy; Kiddies Educare | All Rights Reserved</span>
-          <span>Call us on +44009932324</span>
-        </div>
-      </div>
-    </footer>
+    <Fragment>
+      <footer>
+        <FooterTop className="footer-top">
+          <Container className="wow fadeIn">
+            <Row>
+              <Col xl={3} lg={6} md={6} sm={6}>
+                <div>
+                  <div>
+                    <Link className="text-decoration-none " to="/">
+                      <h1 className="text-primary">Kiddies Educare</h1>
+                    </Link>
+                  </div>
+                  <p className="fs-5 text-black">
+                    Lorem ipsum dolor sit amet, consectetur at adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    the are aliqua.
+                  </p>
+                </div>
+              </Col>
+              <Col xl={3} lg={6} md={6} sm={6}>
+                <InformationDiv className="border-0">
+                  <FooterTitle> Information </FooterTitle>
+                  <ul>
+                    <li>
+                      <Link to="/"> Home </Link>
+                    </li>
+                    <li>
+                      <Link to="/about-1"> About </Link>
+                    </li>
+                    <li>
+                      <Link to="/faqs"> Faq </Link>
+                    </li>
+                    <li>
+                      <Link to="/event"> Event </Link>
+                    </li>
+                    <li>
+                      <Link to="/gallery"> Gallery </Link>
+                    </li>
+                    <li>
+                      <Link to="/classes"> Classes </Link>
+                    </li>
+                    <li>
+                      <Link to="/contact-us"> Contact </Link>
+                    </li>
+                  </ul>
+                </InformationDiv>
+              </Col>
+              <Col xl={3} lg={6} md={6} sm={6}>
+                <RecentEvents>
+                  <FooterTitle> Recent Events </FooterTitle>
+                  <div>
+                    {events.map((event) => {
+                      const { id, title, image } = event;
+                      return (
+                        <div key={id} className="singleEvent">
+                          <div className="eventImage">
+                            <img src={image} width="200" height="143" alt="" />
+                          </div>
+                          <div className="eventInfo">
+                            <h6>
+                              <Link
+                                className="text-decoration-none text-black"
+                                to="/blog-details"
+                              >
+                                {title}
+                              </Link>
+                            </h6>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </RecentEvents>
+              </Col>
+              <Col xl={3} lg={6} md={6} sm={6}>
+                <div>
+                  <FooterTitle> Newsletter </FooterTitle>
+                  <SubscribeForm>
+                    <Form>
+                      <div>
+                        <FormControl
+                          required="required"
+                          placeholder="Your Email Address"
+                          type="email"
+                        />
+                        <button
+                          type="submit"
+                          className="px-6 py-3 bg-teal-600 hover:bg-teal-800 text-white fs-5 rounded-full "
+                        >
+                          Subscribe
+                        </button>
+                      </div>
+                    </Form>
+                  </SubscribeForm>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </FooterTop>
+        {/*  footer bottom part  */}
+        <FooterBottom>
+          <Container>
+            <Row>
+              <Col lg={6} md={8} sm={6} className="text-left">
+                <span>Copyright© 2022 Kiddies Educare.All right reserved</span>
+              </Col>
+            </Row>
+          </Container>
+        </FooterBottom>
+      </footer>
+    </Fragment>
   );
 };
 

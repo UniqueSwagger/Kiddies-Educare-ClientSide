@@ -1,1 +1,38 @@
-[{"id":1,"title":"Swimming Compitition","image":"https://i.ibb.co/GTZcmk8/swimming.jpg","fromDate":"22-10-2021","fromTime":"8:00 AM","toDate":"23-10-2021","toTime":"6:00 PM","location":"32 Loze Street, London","eventOrganizer":"Swimmer London","venue":"Community Mall"},{"id":2,"title":"Swimming Compitition","image":"https://i.ibb.co/sRtKZsY/science.png","fromDate":"22-10-2021","fromTime":"8:00 AM","toDate":"23-10-2021","toTime":"6:00 PM","location":"32 Loze Street, London","eventOrganizer":"Swimmer London","venue":"Community Mall"},{"id":3,"title":"Swimming Compitition","image":"https://i.ibb.co/RPQQZ90/baseball.jpg","fromDate":"22-10-2021","fromTime":"8:00 AM","toDate":"23-10-2021","toTime":"6:00 PM","location":"32 Loze Street, London","eventOrganizer":"Swimmer London","venue":"Community Mall"}]
+[
+  {
+    "id": 1,
+    "title": "Swimming Competition",
+    "image": "https://i.ibb.co/GTZcmk8/swimming.jpg",
+    "fromDate": "22-10-2021",
+    "fromTime": "8:00 AM",
+    "toDate": "23-10-2021",
+    "toTime": "6:00 PM",
+    "location": "32 Loze Street, London",
+    "eventOrganizer": "Swimmer London",
+    "venue": "Community Mall"
+  },
+  {
+    "id": 2,
+    "title": "Swimming Competition",
+    "image": "https://i.ibb.co/sRtKZsY/science.png",
+    "fromDate": "22-10-2021",
+    "fromTime": "8:00 AM",
+    "toDate": "23-10-2021",
+    "toTime": "6:00 PM",
+    "location": "32 Loze Street, London",
+    "eventOrganizer": "Swimmer London",
+    "venue": "Community Mall"
+  },
+  {
+    "id": 3,
+    "title": "Swimming Competition",
+    "image": "https://i.ibb.co/RPQQZ90/baseball.jpg",
+    "fromDate": "22-10-2021",
+    "fromTime": "8:00 AM",
+    "toDate": "23-10-2021",
+    "toTime": "6:00 PM",
+    "location": "32 Loze Street, London",
+    "eventOrganizer": "Swimmer London",
+    "venue": "Community Mall"
+  }
+]

@@ -73,7 +73,6 @@ export const SlideContentArea = styled.div`
   }
   a {
     margin-right: 10px;
-    padding: 9px 20px;
     font-size: 14px;
   }
 `;

@@ -1,15 +1,15 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 const useEvents = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("./events.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setEvents(data);
-      });
+    const getEvents = async () => {
+      const res = await axios.get("./events.json");
+      setEvents(res.data);
+    };
+    getEvents();
   }, []);
   return events;
 };
