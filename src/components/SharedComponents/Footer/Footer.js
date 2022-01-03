@@ -69,7 +69,12 @@ const Footer = () => {
                       return (
                         <div key={_id} className="singleEvent">
                           <div className="eventImage">
-                            <img src={image} width="200" height="143" alt="" />
+                            <img
+                              src={image}
+                              width="200"
+                              height="143"
+                              alt={`${title}`}
+                            />
                           </div>
                           <div className="eventInfo">
                             <h6>

@@ -50,7 +50,7 @@ const HeroSection = () => {
           <Carousel.Item key={id}>
             <SlideItem>
               <SlideItemImage>
-                <img src={image} alt="" className="img-fluid" />
+                <img src={image} alt={`${title}`} className="img-fluid" />
               </SlideItemImage>
               <SlideContent>
                 <SlideContentBox>
