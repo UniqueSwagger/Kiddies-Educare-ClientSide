@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
+import { Row, Col, Tabs, Tab } from "react-bootstrap";
+import useGallery from "../../../hooks/useGallery";
+import GalleryImages from "../GalleryImages/GalleryImages";
 import "./GalleryDashboard.css";
 const GalleryDashboard = () => {
   const [key, setKey] = useState("showAll");
+  const images = useGallery();
+  const drawingImages = images.filter((image) => image.category === "Drawing");
+  const educationImages = images.filter(
+    (image) => image.category === "Education"
+  );
+  const gameImages = images.filter((image) => image.category === "Game");
   return (
     <div className="galleryDashboard my-3">
       <Row>
         <Col>
-          <Container>
+          <div>
             <Tabs
               className="justify-content-center align-items-center border-0 nav-pills text-black my-5"
               defaultActiveKey="All"
@@ -15,19 +23,19 @@ const GalleryDashboard = () => {
               onSelect={(k) => setKey(k)}
             >
               <Tab eventKey="showAll" title="Show All">
-                <h1>All</h1>
+                <GalleryImages images={images} />
               </Tab>
               <Tab eventKey="drawing" title="Drawing">
-                <h1>Drawing</h1>
+                <GalleryImages images={drawingImages} />
               </Tab>
               <Tab eventKey="education" title="Education">
-                <h1>Education</h1>
+                <GalleryImages images={educationImages} />
               </Tab>
               <Tab eventKey="game" title="Game">
-                <h1>Game</h1>
+                <GalleryImages images={gameImages} />
               </Tab>
             </Tabs>
-          </Container>
+          </div>
         </Col>
       </Row>
     </div>
