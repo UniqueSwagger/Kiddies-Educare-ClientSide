@@ -72,7 +72,7 @@ const CardCheckOut = () => {
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <button id="submit">
+      <button id="submit" className="card-button w-full">
         <span id="button-text">Pay now</span>
       </button>
       {/* Show any error or success messages */}

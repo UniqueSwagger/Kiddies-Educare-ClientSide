@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import "../PaymentForm/PaymentForm.css";
-import CardCheckOut from "../PaymentForm/CardCheckOut";
+import "../CardCheckOut/CardCheckOut.css";
+import CardCheckOut from "../CardCheckOut/CardCheckOut";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.

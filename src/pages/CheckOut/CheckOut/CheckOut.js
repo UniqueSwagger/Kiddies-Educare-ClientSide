@@ -21,7 +21,9 @@ const CheckOut = () => {
             <h2>Your Cart is empty</h2>
           )}
         </div>
-        <div></div>
+        <div>
+          <StripePayment />
+        </div>
       </div>
     </div>
   );
