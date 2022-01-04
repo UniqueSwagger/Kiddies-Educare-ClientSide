@@ -8,9 +8,10 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import EventDetails from "./pages/Home/Events/EventDetails/EventDetails";
 import Header from "./components/SharedComponents/Header/Header";
 import Footer from "./components/SharedComponents/Footer/Footer";
-import Shop from "./components/Shop/Shop";
+import Shop from "./pages/Shop/Shop";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
+import AboutUs from "./pages/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/events" element={<EventsPage />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />

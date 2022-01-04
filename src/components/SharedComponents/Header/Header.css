@@ -1,5 +1,5 @@
 .checkout-btn {
-  background-color: #10b981;
+  background-color: #0d9488;
   color: white;
   border: none;
   padding: 10px;
@@ -7,8 +7,8 @@
   cursor: pointer;
 }
 .total {
-  color: #0f9f6e;
+  color: #0d9488;
 }
 .checkout-btn:hover {
-  background-color: #0f9f6e;
+  background-color: #115e59;
 }

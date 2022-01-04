@@ -81,6 +81,12 @@ const Header = () => {
                       >
                         My Orders
                       </NavLink>
+                      <NavLink
+                        to={"/about"}
+                        className="text-gray-50 hover:bg-white hover:text-teal-600 px-3 py-2 rounded-md text-lg font-medium text-decoration-none text-none"
+                      >
+                        About
+                      </NavLink>
                     </div>
                   </div>
                 </div>

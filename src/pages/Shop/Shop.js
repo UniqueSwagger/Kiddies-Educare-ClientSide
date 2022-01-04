@@ -1,5 +1,5 @@
 import React from "react";
-import BreadCrumb from "../BreadCrumb/BreadCrumb";
+import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import { BsCartPlusFill } from "react-icons/bs";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -12,7 +12,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
 } from "../../redux/slices/allProductSlice";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const Shop = () => {
   const dispatch = useDispatch();
