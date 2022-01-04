@@ -9,6 +9,8 @@ import EventDetails from "./pages/Home/Events/EventDetails/EventDetails";
 import Header from "./components/SharedComponents/Header/Header";
 import Footer from "./components/SharedComponents/Footer/Footer";
 import Shop from "./components/Shop/Shop";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import EventsPage from "./pages/EventsPage/EventsPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/eventDetails/:id" element={<EventDetails />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
