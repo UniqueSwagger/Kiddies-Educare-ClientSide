@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import Managers from "../../components/Managers/Manager";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import WhyRegister from "../../components/WhyRegister/WhyRegister";
@@ -9,6 +10,7 @@ const AboutUs = () => {
   return (
     <Fragment>
       <ScrollToTop />
+      <BreadCrumb title="About Us" />
       <div style={{ marginTop: "80px" }} className="row py-5">
         <div className="col-lg-6">
           <img
