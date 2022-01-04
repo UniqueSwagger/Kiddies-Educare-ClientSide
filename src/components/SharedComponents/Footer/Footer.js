@@ -12,6 +12,33 @@ import {
 } from "../../StyledComponents/FooterStyle";
 const Footer = () => {
   const events = useEvents();
+  const recentEvents = events?.slice(0, 3);
+  const links = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "Gallery",
+      link: "/gallery",
+    },
+    {
+      name: "Events",
+      link: "/events",
+    },
+    {
+      name: "Shop",
+      link: "/shop",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+    },
+  ];
   return (
     <Fragment>
       <footer>
@@ -36,27 +63,11 @@ const Footer = () => {
                 <InformationDiv className="border-0">
                   <FooterTitle> Information </FooterTitle>
                   <ul>
-                    <li>
-                      <Link to="/"> Home </Link>
-                    </li>
-                    <li>
-                      <Link to="/about-1"> About </Link>
-                    </li>
-                    <li>
-                      <Link to="/faqs"> Faq </Link>
-                    </li>
-                    <li>
-                      <Link to="/event"> Event </Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery"> Gallery </Link>
-                    </li>
-                    <li>
-                      <Link to="/classes"> Classes </Link>
-                    </li>
-                    <li>
-                      <Link to="/contact-us"> Contact </Link>
-                    </li>
+                    {links.map((link) => (
+                      <li>
+                        <Link to={`${link.link}`}> {link.name} </Link>
+                      </li>
+                    ))}
                   </ul>
                 </InformationDiv>
               </Col>
@@ -64,7 +75,7 @@ const Footer = () => {
                 <RecentEvents>
                   <FooterTitle> Recent Events </FooterTitle>
                   <div>
-                    {events.map((event) => {
+                    {recentEvents.map((event) => {
                       const { _id, title, image } = event;
                       return (
                         <div key={_id} className="singleEvent">

@@ -1,16 +1,16 @@
 import React from "react";
 import BreadCrumb from "../../components/BreadCrumb/BreadCrumb";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
-import Gallery from "../Home/Gallery/Gallery";
+import Events from "../Home/Events/Events";
 
-const GalleryPage = () => {
+const EventsPage = () => {
   return (
     <div>
       <ScrollToTop />
-      <BreadCrumb title="Gallery" />
-      <Gallery />
+      <BreadCrumb title="Events" />
+      <Events />
     </div>
   );
 };
 
-export default GalleryPage;
+export default EventsPage;
