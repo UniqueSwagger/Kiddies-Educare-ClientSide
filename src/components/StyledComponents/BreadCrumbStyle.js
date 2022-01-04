@@ -1,5 +1,6 @@
 import styled from "styled-components";
 export const BreadCrumbArea = styled.div`
+  margin-top: 40px;
   background-image: url("https://i.ibb.co/YNpS085/pattern-951b276d.jpg");
   position: relative;
   background-attachment: scroll;

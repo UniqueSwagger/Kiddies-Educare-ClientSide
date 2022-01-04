@@ -41,7 +41,7 @@ const HeroSection = () => {
     <Carousel
       indicators={false}
       controls={true}
-      className="slider"
+      className="slider mt-5 pt-3"
       autoPlay={true}
     >
       {carouselBlog.map((item) => {

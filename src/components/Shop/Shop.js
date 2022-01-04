@@ -45,8 +45,7 @@ const Shop = () => {
         <div>
           <Row className="mx-3 g-3 my-5 pb-5">
             {currentProducts.map((singleProduct) => {
-              const { _id, title, image, originalPrice, discountedPrice } =
-                singleProduct;
+              const { _id, title, image, originalPrice, price } = singleProduct;
               const matchedProduct = addedProducts.find(
                 (item) => item._id === _id
               );
@@ -65,10 +64,10 @@ const Shop = () => {
                     <div className="d-flex mt-2 align-items-center justify-content-between">
                       <div>
                         <span className="mb-0 h4 me-1 text-teal-600">
-                          ${originalPrice}
+                          ${price}
                         </span>
-                        {discountedPrice && (
-                          <del className="text-muted">${discountedPrice}</del>
+                        {originalPrice && (
+                          <del className="text-muted">${originalPrice}</del>
                         )}
                       </div>
                       {matchedProduct ? (

@@ -1,16 +1,30 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, ShoppingCartIcon, XIcon } from "@heroicons/react/outline";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Offcanvas } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
+import useProducts from "../../../hooks/useProducts";
+import CartListItem from "../../CartListItem/CartListItem";
+import "./Header.css";
 const Header = () => {
   const navigate = useNavigate();
   const {
     currentUser: { displayName, photoURL },
     handleLogout,
   } = useAuth();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const { addedProducts } = useProducts();
+  const totalAddedProducts = addedProducts.reduce((acc, item) => {
+    return acc + item.cartQuantity;
+  }, 0);
+  const totalAddedProductsPrice = addedProducts.reduce((acc, item) => {
+    return acc + item.cartQuantity * item.price;
+  }, 0);
   return (
-    <header className=" bg-teal-600">
+    <header className=" bg-teal-600 fixed-top">
       <Disclosure as="nav" className="shadow-md">
         {({ open }) => (
           <Fragment>
@@ -28,11 +42,16 @@ const Header = () => {
                   </Disclosure.Button>
                 </div>
                 {/* Navbar Left Side on large screen */}
-                <div className="flex-1 flex items-center justify-center sm:justify-start">
+                <div className="flex-1  flex items-center justify-center sm:justify-start">
                   <div className="flex-shrink-0 flex items-center">
                     {/* logo */}
                     <h1 className="text-2xl font-medium text-white mb-0 mb-lg-1">
-                      Kiddies Educare
+                      <Link
+                        className="text-white text-decoration-none"
+                        to="/home"
+                      >
+                        Kiddies Educare
+                      </Link>
                     </h1>
                   </div>
                   <div className="hidden sm:block sm:ml-6">
@@ -84,14 +103,17 @@ const Header = () => {
                           {displayName}
                         </span>
                       )}
-                      <div className="relative cursor-pointer">
+                      <div
+                        className="relative cursor-pointer"
+                        onClick={handleShow}
+                      >
                         <ShoppingCartIcon
                           className="h-6 w-6 text-red-600"
                           aria-hidden="true"
                         />
 
                         <span className="bg-white text-teal-600 px-1 text-xs rounded-md absolute bottom-3 left-4">
-                          3
+                          {totalAddedProducts}
                         </span>
                       </div>
                     </div>
@@ -157,6 +179,36 @@ const Header = () => {
                 </Disclosure.Button>
               </div>
             </Disclosure.Panel>
+            <Offcanvas placement="end" show={show} onHide={handleClose}>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                {addedProducts.length ? (
+                  addedProducts.map((addedProduct) => (
+                    <CartListItem
+                      key={addedProduct._id}
+                      addedProduct={addedProduct}
+                    />
+                  ))
+                ) : (
+                  <h2>Your Cart is empty</h2>
+                )}
+              </Offcanvas.Body>
+              <NavLink className="p-3 nav-link" to="/checkout">
+                <button
+                  onClick={handleClose}
+                  className={`w-100 py-3 px-3 rounded-lg checkout-btn d-flex align-items-center justify-content-between text-white ${
+                    !addedProducts.length && "d-none"
+                  }`}
+                >
+                  <span className="h5 mb-0">Proceed To Checkout</span>
+                  <span className="rounded fs-5 fw-bold total py-2 px-3 bg-white ">
+                    ${totalAddedProductsPrice.toFixed(2)}
+                  </span>
+                </button>
+              </NavLink>
+            </Offcanvas>
           </Fragment>
         )}
       </Disclosure>

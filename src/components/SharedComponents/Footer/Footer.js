@@ -64,7 +64,7 @@ const Footer = () => {
                   <FooterTitle> Information </FooterTitle>
                   <ul>
                     {links.map((link) => (
-                      <li>
+                      <li key={link.name}>
                         <Link to={`${link.link}`}> {link.name} </Link>
                       </li>
                     ))}
