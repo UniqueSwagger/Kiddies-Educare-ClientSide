@@ -14,7 +14,7 @@ form {
 }
 
 #payment-element {
-  margin-bottom: 24px;
+  margin: 24px;
 }
 
 /* Buttons and links */
@@ -38,7 +38,7 @@ form {
 }
 
 .card-button:disabled {
-  opacity: 0.5;
+  opacity: 0.8;
   cursor: default;
 }
 
@@ -93,22 +93,4 @@ form {
   transform-origin: 0px 10.2px;
   -webkit-animation: loading 2s infinite ease;
   animation: loading 2s infinite ease;
-}
-
-@keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  form {
-    width: 80vw;
-    min-width: initial;
-  }
 }

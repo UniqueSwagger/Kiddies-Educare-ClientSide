@@ -1,3 +1,4 @@
+import { RefreshIcon } from "@heroicons/react/outline";
 import {
   PaymentElement,
   useElements,
@@ -10,6 +11,7 @@ const CardCheckOut = () => {
   const elements = useElements();
 
   const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!stripe) {
@@ -49,12 +51,14 @@ const CardCheckOut = () => {
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
+    console.log(elements);
+    setIsLoading(true);
 
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3000/home",
       },
     });
 
@@ -68,15 +72,27 @@ const CardCheckOut = () => {
     } else {
       setMessage("An unexpected error occured.");
     }
+    setIsLoading(false);
   };
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <button id="submit" className="card-button w-full">
-        <span id="button-text">Pay now</span>
+
+      <button
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+        className="card-button w-full"
+      >
+        <span id="button-text">
+          {isLoading ? (
+            <RefreshIcon className="h-6 w-6 mx-auto animate-spin text-orange-600" />
+          ) : (
+            "Pay Now"
+          )}
+        </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && <div>{message}</div>}
     </form>
   );
 };

@@ -52,7 +52,17 @@ const EventDetails = () => {
                     alt="event"
                   />
                 </Col>
-                <Col></Col>
+                <Col>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369106.7267949492!2d-79.65824079514913!3d43.71789901030551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2z4Kaf4Kaw4Kao4KeN4Kaf4KeLLCDgpoXgpqjgp43gpp_gpr7gprDgpr_gppMsIOCmleCmvuCmqOCmvuCmoeCmvg!5e0!3m2!1sbn!2sbd!4v1641205417342!5m2!1sbn!2sbd"
+                    width="670"
+                    className="w-100 border-0"
+                    height="310"
+                    allowFullScreen
+                    loading="lazy"
+                    title="map"
+                  ></iframe>
+                </Col>
               </Row>
               <div>
                 <p className="text-muted fs-6 my-3">{event.description}</p>
