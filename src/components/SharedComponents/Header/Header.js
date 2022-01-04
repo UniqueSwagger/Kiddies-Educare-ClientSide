@@ -45,6 +45,12 @@ const Header = () => {
                         Home
                       </NavLink>
                       <NavLink
+                        to={"/gallery"}
+                        className="text-gray-50  hover:bg-white hover:text-teal-600 px-3 py-2 rounded-md text-lg font-medium text-decoration-none text-none"
+                      >
+                        Gallery
+                      </NavLink>
+                      <NavLink
                         to={"/shop"}
                         className="text-gray-50 hover:bg-white hover:text-teal-600 px-3 py-2 rounded-md text-lg font-medium text-decoration-none text-none"
                       >
@@ -116,13 +122,21 @@ const Header = () => {
             </div>
             {/* Mobile Menus */}
             <Disclosure.Panel className="sm:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-2 pt-2 flex flex-column pb-3 space-y-1">
                 <Disclosure.Button>
                   <Link
                     className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
                     to="/home"
                   >
                     Home
+                  </Link>
+                </Disclosure.Button>
+                <Disclosure.Button>
+                  <Link
+                    className="text-gray-300 hover:bg-gray-700 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium text-decoration-none"
+                    to="/gallery"
+                  >
+                    Gallery
                   </Link>
                 </Disclosure.Button>
                 <Disclosure.Button>
