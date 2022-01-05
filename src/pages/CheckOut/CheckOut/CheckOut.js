@@ -27,7 +27,7 @@ const CheckOut = () => {
     data.status = "pending";
     data.addedProducts = addedProducts;
     data.email = email;
-    axios.post("http://localhost:5000/order", data).then((res) => {
+    axios.post("http://localhost:5000/orders", data).then((res) => {
       if (res.data.insertedId) {
         setLoading(false);
         Swal.fire(
@@ -138,7 +138,7 @@ const CheckOut = () => {
                     <Form.Control
                       required
                       type="text"
-                      {...register("originalPrice")}
+                      {...register("city")}
                       placeholder="Enter your city name"
                     />
                   </Form.Group>

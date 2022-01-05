@@ -14,6 +14,7 @@ import EventsPage from "./pages/EventsPage/EventsPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import CheckOut from "./pages/CheckOut/CheckOut/CheckOut";
 import PrivateRoute from "./Private/PrivateRoute";
+import MyOrders from "./components/MyOrders/MyOrders";
 
 function App() {
   return (
@@ -31,6 +32,14 @@ function App() {
             element={
               <PrivateRoute>
                 <CheckOut />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/myOrders"
+            element={
+              <PrivateRoute>
+                <MyOrders />
               </PrivateRoute>
             }
           />

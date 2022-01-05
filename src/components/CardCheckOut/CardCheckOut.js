@@ -5,11 +5,11 @@ import {
   useStripe,
   CardElement,
 } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import { clearTheCart, setPayment } from "../../redux/slices/allProductSlice";
+import { setPayment } from "../../redux/slices/allProductSlice";
 
 const CardCheckOut = ({ totalAddedProductsPrice, addedProducts }) => {
   const dispatch = useDispatch();
@@ -18,14 +18,6 @@ const CardCheckOut = ({ totalAddedProductsPrice, addedProducts }) => {
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    if (success) {
-      dispatch(clearTheCart());
-    } else {
-      setSuccess(false);
-    }
-  }, [success, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
