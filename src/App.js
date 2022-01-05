@@ -13,6 +13,7 @@ import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import CheckOut from "./pages/CheckOut/CheckOut/CheckOut";
+import PrivateRoute from "./Private/PrivateRoute";
 
 function App() {
   return (
@@ -25,7 +26,14 @@ function App() {
           <Route path="/eventDetails/:id" element={<EventDetails />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <CheckOut />
+              </PrivateRoute>
+            }
+          />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/login" element={<LoginPage />} />

@@ -13,6 +13,7 @@ const allProductSlice = createSlice({
   initialState: {
     products: [],
     addedProducts: [],
+    payment: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -43,6 +44,9 @@ const allProductSlice = createSlice({
       if (existingProduct.cartQuantity === 1) return;
       existingProduct.cartQuantity -= 1;
     },
+    setPayment: (state, action) => {
+      state.payment.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
@@ -59,5 +63,6 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   clearTheCart,
+  setPayment,
 } = allProductSlice.actions;
 export default allProductSlice.reducer;

@@ -3,46 +3,29 @@ import {
   PaymentElement,
   useElements,
   useStripe,
+  CardElement,
 } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { clearTheCart, setPayment } from "../../redux/slices/allProductSlice";
 
-const CardCheckOut = () => {
+const CardCheckOut = ({ totalAddedProductsPrice, addedProducts }) => {
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
-
-  const [message, setMessage] = useState(null);
+  const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if (!stripe) {
-      return;
+    if (success) {
+      dispatch(clearTheCart());
+    } else {
+      setSuccess(false);
     }
-
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
-
-    if (!clientSecret) {
-      return;
-    }
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
-  }, [stripe]);
+  }, [success, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,35 +34,52 @@ const CardCheckOut = () => {
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-    console.log(elements);
     setIsLoading(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
-      confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/home",
+      redirect: "if_required",
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          addedProducts,
+          currentUser,
+          totalAddedProductsPrice,
+        },
       },
     });
 
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Otherwise, your customer will be redirected to
-    // your `return_url`. For some payment methods like iDEAL, your customer will
-    // be redirected to an intermediate site first to authorize the payment, then
-    // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
+    if (error) {
+      console.log(error);
+      error &&
+        Swal.fire({
+          title: "Payment Failed",
+          text: error.message,
+          icon: "error",
+        }).then(() => setIsLoading(false));
     } else {
-      setMessage("An unexpected error occured.");
+      Swal.fire({
+        title: "Payment Successful",
+        text: "Thank you for shopping with us!",
+        icon: "success",
+      }).then(() => setIsLoading(false));
+      setSuccess(true);
+      const payment = {
+        addedProducts,
+        currentUser,
+        totalAddedProductsPrice,
+        paymentIntent,
+      };
+      dispatch(setPayment(payment));
     }
-    setIsLoading(false);
+    e.target.reset();
   };
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
 
       <button
-        disabled={isLoading || !stripe || !elements}
+        disabled={isLoading || !stripe || !elements || success}
         id="submit"
         className="card-button w-full"
       >
@@ -87,12 +87,10 @@ const CardCheckOut = () => {
           {isLoading ? (
             <RefreshIcon className="h-6 w-6 mx-auto animate-spin text-orange-600" />
           ) : (
-            "Pay Now"
+            <span>{success ? "Paid" : `Pay `}</span>
           )}
         </span>
       </button>
-      {/* Show any error or success messages */}
-      {message && <div>{message}</div>}
     </form>
   );
 };
