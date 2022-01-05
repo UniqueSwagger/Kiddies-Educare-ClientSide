@@ -4,6 +4,7 @@ import image from "../../images/whyRegister.jpg";
 const WhyRegister = () => {
   return (
     <div
+      data-testid="why-register"
       className="row p-5 my-5 align-items-center"
       style={{ background: "#235c51", borderRadius: "30px" }}
     >
