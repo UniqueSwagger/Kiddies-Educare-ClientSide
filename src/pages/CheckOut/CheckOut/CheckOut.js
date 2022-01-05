@@ -7,9 +7,12 @@ import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import ScrollToTop from "../../../components/ScrollToTop/ScrollToTop";
+import { clearTheCart } from "../../../redux/slices/allProductSlice";
 const CheckOut = () => {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const { addedProducts } = useProducts();
   const totalAddedProductsPrice = addedProducts.reduce((acc, item) => {
     return acc + item.cartQuantity * item.price;
@@ -31,6 +34,7 @@ const CheckOut = () => {
       .post("https://afternoon-headland-78231.herokuapp.com/orders", data)
       .then((res) => {
         if (res.data.insertedId) {
+          dispatch(clearTheCart());
           setLoading(false);
           Swal.fire(
             "Ordered successfully!",

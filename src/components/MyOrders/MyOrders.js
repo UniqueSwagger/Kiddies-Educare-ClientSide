@@ -59,7 +59,7 @@ const MyOrders = () => {
                     <div className="d-flex mt-2 align-items-center justify-content-between">
                       <div>
                         <span className="mb-0 h4 me-1">
-                          Total : ${price * cartQuantity}
+                          Total : ${(price * cartQuantity).toFixed(2)}
                         </span>
                       </div>
                     </div>
