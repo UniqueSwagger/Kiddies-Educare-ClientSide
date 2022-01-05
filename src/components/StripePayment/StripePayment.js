@@ -31,7 +31,7 @@ const StripePayment = ({ price }) => {
   };
 
   return (
-    <div className="">
+    <div data-testid="stripe-test" className="stripe">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <CardCheckOut />

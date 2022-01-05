@@ -47,7 +47,7 @@ const Managers = () => {
   ];
 
   return (
-    <div>
+    <div data-testid="manager-test">
       <div className="text-center w-75 mx-auto my-5">
         <h3 className="section-subtitle">Together we can create</h3>
         <h1 className="section-title">Who Stand By Your Kids Always</h1>
