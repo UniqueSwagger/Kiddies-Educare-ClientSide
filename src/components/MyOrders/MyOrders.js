@@ -11,7 +11,9 @@ const MyOrders = () => {
   } = useAuth();
   useEffect(() => {
     const fetchOrders = async () => {
-      const response = await fetch(`http://localhost:5000/orders/${email}`);
+      const response = await fetch(
+        `https://afternoon-headland-78231.herokuapp.com/orders/${email}`
+      );
       const data = await response.json();
       setOrders(data);
     };

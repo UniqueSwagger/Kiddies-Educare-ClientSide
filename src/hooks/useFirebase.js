@@ -120,7 +120,7 @@ const useFirebase = () => {
     const user = { email, displayName };
     axios({
       method: httpMethod,
-      url: "http://localhost:5000/users",
+      url: "https://afternoon-headland-78231.herokuapp.com/users",
       data: user,
     });
   };

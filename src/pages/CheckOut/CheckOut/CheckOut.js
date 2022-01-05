@@ -27,16 +27,18 @@ const CheckOut = () => {
     data.status = "pending";
     data.addedProducts = addedProducts;
     data.email = email;
-    axios.post("http://localhost:5000/orders", data).then((res) => {
-      if (res.data.insertedId) {
-        setLoading(false);
-        Swal.fire(
-          "Ordered successfully!",
-          "Thanks for shopping with us. We will contact you soon.",
-          "success"
-        );
-      }
-    });
+    axios
+      .post("https://afternoon-headland-78231.herokuapp.com/orders", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          setLoading(false);
+          Swal.fire(
+            "Ordered successfully!",
+            "Thanks for shopping with us. We will contact you soon.",
+            "success"
+          );
+        }
+      });
   };
   return (
     <div className="mt-20 px-12">

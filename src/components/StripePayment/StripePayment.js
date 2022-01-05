@@ -16,9 +16,12 @@ const StripePayment = ({ addedProducts }) => {
   const [clientSecret, setClientSecret] = useState("");
   useEffect(() => {
     axios
-      .post("http://localhost:5000/create-payment-intent", {
-        totalAddedProductsPrice,
-      })
+      .post(
+        "https://afternoon-headland-78231.herokuapp.com/create-payment-intent",
+        {
+          totalAddedProductsPrice,
+        }
+      )
       .then((res) => {
         setClientSecret(res.data.clientSecret);
       });

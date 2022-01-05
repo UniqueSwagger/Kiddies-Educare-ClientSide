@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 export const fetchEvents = createAsyncThunk("events/fetchEvents", async () => {
-  const response = await axios.get("http://localhost:5000/events");
+  const response = await axios.get(
+    "https://afternoon-headland-78231.herokuapp.com/events"
+  );
   return response.data;
 });
 const eventsSlice = createSlice({

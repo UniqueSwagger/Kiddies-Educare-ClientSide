@@ -3,7 +3,9 @@ import axios from "axios";
 export const fetchGalleryImages = createAsyncThunk(
   "gallery/fetchGalleryImages",
   async () => {
-    const response = await axios.get("http://localhost:5000/gallery");
+    const response = await axios.get(
+      "https://afternoon-headland-78231.herokuapp.com/gallery"
+    );
     return response.data;
   }
 );
