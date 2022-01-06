@@ -3,22 +3,31 @@ import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { Row, Col, Container } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 import "./MyOrders.css";
+import { useNavigate } from "react-router-dom";
 const MyOrders = () => {
   const [orders, setOrders] = React.useState([]);
   const {
     currentUser: { email },
+    token,
   } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
-    const fetchOrders = async () => {
-      const response = await fetch(
-        `https://afternoon-headland-78231.herokuapp.com/orders/${email}`
-      );
-      const data = await response.json();
-      setOrders(data);
-    };
-    fetchOrders();
-  }, [email]);
+    axios
+      .get(`https://afternoon-headland-78231.herokuapp.com/orders/${email}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setOrders(res.data);
+        } else {
+          navigate("/login");
+        }
+      });
+  });
   const addedProducts = orders.map((order) => order.addedProducts);
   const flattenAddedProducts = addedProducts.flat();
   const status = orders.map((order) => order.status);
